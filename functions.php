@@ -44,7 +44,7 @@ if ( ! function_exists( 'tm_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'tm' ),
+			'primary' => esc_html__( 'Primary', 'tm' ),
 		) );
 
 		/*
@@ -159,3 +159,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Accept SVGs in Media Library.
+ */
+function tm_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'tm_mime_types');

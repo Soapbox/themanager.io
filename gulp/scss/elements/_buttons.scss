@@ -1,0 +1,23 @@
+.button{
+  border-radius: 3px;
+  background: $secondary;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 15px 40px;
+  &.tertiary{
+    background: $maindark;
+  }
+
+  // No Margin.
+  .home-header &,
+  .attend-cta &{
+    margin: 0;
+  }
+  .card &{
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    border-radius: 30.5px;
+  }
+}

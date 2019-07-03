@@ -1,3 +1,33 @@
 .page-header{
-  border: 1px solid red;
+  height: 100vh;
+  background-color: $main;
+  color: #fff;
+  .grid-container{
+    width: 100%;
+  }
+}
+
+.home-header{
+  .header-title{
+    padding: 30px 0;
+    border-top: 9px solid #fff;
+    border-bottom: 9px solid #fff;
+  }
+  p{
+    margin-top: 20px;
+  }
+  .attachment-post-thumbnail{
+    width: 90%;
+  }
+}
+
+img{
+  height: auto;
+}
+
+.section-padding{
+  padding: 30px 0;
+  @include breakpoint(large) {
+    padding: 50px 0;
+  }
 }
