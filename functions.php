@@ -167,3 +167,10 @@ function tm_mime_types($mimes) {
   return $mimes;
 }
 add_filter('upload_mimes', 'tm_mime_types');
+
+/**
+ * Options Page
+ */
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page('Theme Options');
+}

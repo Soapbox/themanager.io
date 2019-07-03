@@ -146,3 +146,22 @@ if ( ! function_exists( 'tm_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+if ( ! function_exists( 'tm_social_media' ) ) :
+	/**
+	 * Displays social media icons.
+	 */
+	function tm_social_media() {
+  
+    $twitter = get_option( 'options_tm_twitter' );
+
+    if ( empty( $twitter ) ) {
+      return;
+    }
+
+    echo '<div class="social-icons">';
+      echo '<a href="' . esc_url( $twitter['url'] ) . '"><i class="fab fa-twitter"></i></a>';
+    echo '</div>';
+
+	}
+endif;

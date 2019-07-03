@@ -15,13 +15,18 @@
 
 	<footer id="colophon" class="site-footer">
     <div class="grid-container">
-      <div class="site-info">
-        <?php
-        $sitename = get_bloginfo( 'name' );
-        
-        echo '<p>' . esc_html( $sitename ) . ' &#169 ' . date( 'Y' ) . '</p>';
-        ?>
-      </div><!-- .site-info -->  
+      <div class="flex-container align-justify">
+        <div class="site-info">
+          <?php
+          $sitename = get_bloginfo( 'name' );
+          
+          echo '<p>' . esc_html( $sitename ) . ' &#169 ' . date( 'Y' ) . '</p>';
+          ?>
+        </div><!-- .site-info -->
+
+        <!-- Social Media. -->
+        <?php tm_social_media(); ?>
+      </div>
     </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->

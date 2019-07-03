@@ -5,19 +5,30 @@
   font-weight: bold;
   text-decoration: none;
   padding: 15px 40px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.05), 0 4px 6px 0 rgba(0,0,0,0.05);
+  border: 2px solid transparent;
+  margin: 0;
+  transition: 0.3s ease-in-out;
+  &:hover{
+    background: #fff;
+    color: $secondary;
+    border: 2px solid $secondary;
+  }
   &.tertiary{
     background: $maindark;
+    &:hover{
+      background: #fff;
+      color: $maindark;
+      border: 2px solid $maindark;
+    }
   }
 
-  // No Margin.
-  .home-header &,
-  .attend-cta &{
-    margin: 0;
-  }
+  // Card Button.
   .card &{
     display: block;
     margin: 0 auto;
     width: 75%;
     border-radius: 30.5px;
+    box-shadow: none;
   }
 }

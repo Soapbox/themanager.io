@@ -20,7 +20,7 @@ get_header();
 
       <header class="page-header home-header flex-container align-middle">
         <div class="grid-container">
-          <div class="grid-x grid-padding-x">
+          <div class="grid-x grid-padding-x align-top">
 
             <?php
             $header_title = get_post_meta( get_the_ID(), 'tm_home_page_header_title', true );
@@ -30,7 +30,7 @@ get_header();
             if ( $header_title ) {
               ?>
 
-              <div class="cell small-12 large-6">
+              <div class="cell small-12 medium-8 large-6">
                 <div class="header-title">
                   <?php echo wp_kses_post( apply_filters( 'the_content', $header_title ) ); ?>
                 </div>
@@ -183,20 +183,7 @@ get_header();
 
         <?php
       }
-      ?>
-
-      <!-- <div class="grid-container">
-        <div class="grid-x grid-padding-x">
-          <div class="cell small-12">
-            <?php 
-            // the_title( '<h1>', '</h1>' );
-            // the_content();
-            ?>
-          </div>
-        </div>
-      </div> -->
-
-      <?php
+      
     endwhile; // End of the loop.
     ?>
 
