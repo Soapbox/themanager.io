@@ -18,16 +18,27 @@ get_header();
       the_post();
       ?>
 
-      <div class="grid-container">
+      <header class="page-header">
+        <div class="grid-container">
+          <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+              <?php the_title( '<h1>', '</h1>' ); ?>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- <div class="grid-container">
         <div class="grid-x grid-padding-x">
           <div class="cell small-12">
             <?php 
-            the_title( '<h1>', '</h1>' );
-            the_content();
+            // the_title( '<h1>', '</h1>' );
+            // the_content();
             ?>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <?php
     endwhile; // End of the loop.

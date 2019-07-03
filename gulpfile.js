@@ -1,6 +1,5 @@
 var gulp   = require('gulp');
 		browserSync = require('browser-sync');
-		// reload = browserSync.reload,
 		autoprefixer = require('gulp-autoprefixer');
 		concat = require('gulp-concat');
 		imageMin = require('gulp-imagemin');
