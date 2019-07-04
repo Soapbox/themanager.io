@@ -417,7 +417,7 @@
                 {
                     "key": "field_5d1e3846328d4",
                     "label": "Technology Item",
-                    "name": "tm_technology_item",
+                    "name": "technology_item",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -513,6 +513,55 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_5d1e3e4c12d90",
+            "label": "Persona CTA Text",
+            "name": "tm_persona_cta_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5d1e3e5c12d91",
+            "label": "Share Button",
+            "name": "tm_persona_cta_share_button",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_5d1e3e8212d92",
+            "label": "Join Button",
+            "name": "tm_persona_cta_join_button",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -532,5 +581,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1562261619
+    "modified": 1562263182
 }

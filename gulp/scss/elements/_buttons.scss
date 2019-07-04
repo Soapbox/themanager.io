@@ -14,7 +14,8 @@
     color: $maindark;
     background: #fff;
   }
-  &.join-us{
+  &.join-us,
+  .persona-cta &{
     background: $secondary;
     &:hover{
       border: 2px solid $secondary;
@@ -37,5 +38,14 @@
     width: 75%;
     border-radius: 30.5px;
     box-shadow: none;
+  }
+
+  // Persona CTA.
+  .persona-cta & {
+    margin: 0 0 10px 0;
+    min-width: 200px;
+    @include breakpoint(medium) {
+      margin: 0 10px;
+    }
   }
 }

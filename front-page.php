@@ -87,7 +87,7 @@ get_header();
                       <div>
                         <h3 class="text-center"><?php echo esc_html( $name ); ?></h3>
                         <?php
-                        echo wp_get_attachment_image( $image, 'full' );
+                        echo wp_get_attachment_image( $image, 'full', '', array( 'class' => 'manager-icon' ) );
                         echo wp_kses_post( apply_filters( 'the_content', $text ) );
                         ?>
                       </div>

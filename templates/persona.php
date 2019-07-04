@@ -149,7 +149,7 @@ get_header();
       $tech_text = get_post_meta( get_the_ID(), 'tm_technology_text', true );
       $tech = get_post_meta( get_the_ID(), 'tm_technology_type', true );
       
-      // if ( $tech ) {
+      if ( $tech ) {
         ?>
 
         <section class="section-padding">
@@ -167,12 +167,102 @@ get_header();
                 ?>
 
               </div>
+              
+              <?php
+              for ( $i = 0; $i < $tech; $i++ ) {
+                $label = get_post_meta( get_the_ID(), 'tm_technology_type_' . $i . '_header', true );
+                $items = get_post_meta( get_the_ID(), 'tm_technology_type_' . $i . '_technology_item', true );
+                ?>
+
+                <div class="cell small-12">
+
+                  <?php
+                  if ( $label ) {
+                    echo '<h4 class="technology-label">' . esc_html( $label ) . '</h4>';
+                  }
+                  ?>
+
+                  <div class="grid-x grid-padding-x grid-padding-y">
+
+                    <?php
+                    for ( $x = 0; $x < $items; $x++ ) {
+                      $icon = get_post_meta( get_the_ID(), 'tm_technology_type_' . $i . '_technology_item_' . $x . '_icon', true );
+                      $item_title = get_post_meta( get_the_ID(), 'tm_technology_type_' . $i . '_technology_item_' . $x . '_title', true );
+                      $item_text = get_post_meta( get_the_ID(), 'tm_technology_type_' . $i . '_technology_item_' . $x . '_text', true );
+                      $link = get_post_meta( get_the_ID(), 'tm_technology_type_' . $i . '_technology_item_' . $x . '_link', true );
+
+                      if ( $item_title && $item_text ) {
+                        ?>
+
+                        <div class="cell small-12 medium-4">
+                          <div class="card">
+                            <div class="flex-container align-middle" style="margin-bottom: 10px;">
+                              <?php
+                              if ( $icon ) {
+                                echo wp_get_attachment_image( $icon, 'full', '', array( 'class' => 'tech-icon' ) );
+                              }
+                              ?>
+                              <h4><?php echo esc_html( $item_title ); ?></h4>
+                            </div>
+                            <p><?php echo esc_html( $item_text ); ?></p>
+                            <a class="button" href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
+                          </div>
+                        </div>
+
+                        <?php
+                      }
+                    }
+                    ?>
+
+                  </div>
+                </div>
+
+                <?php
+              }
+              ?>
+              
+
             </div>
           </div>
         </section>
 
         <?php
-      // }
+      }
+      
+      
+      // Persona CTA.
+      $persona_text = get_post_meta( get_the_ID(), 'tm_persona_cta_text', true );
+      $share = get_post_meta( get_the_ID(), 'tm_persona_cta_share_button', true );
+      $join = get_post_meta( get_the_ID(), 'tm_persona_cta_join_button', true );
+
+      if ( $persona_text ) {
+        ?>
+
+        <section class="persona-cta section-padding">
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+              <div class="cell small-12 medium-10 medium-offset-1 large-8 large-offset-2">
+                <?php
+                echo wp_kses_post( apply_filters( 'the_content', $persona_text ) );
+                
+                echo '<div class="text-center">';
+                  if ( $share ) {
+                    echo '<a class="button" href="' . esc_url( $share['url'] ) . '">' . esc_html( $share['title'] ) . '</a>';
+                  }
+                  if ( $join ) {
+                    echo '<a class="button" href="' . esc_url( $join['url'] ) . '">' . esc_html( $join['title'] ) . '</a>';
+                  }
+                echo '</div>';
+                ?>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <?php
+      }
+      
+
 
       // Podcasts.
       $podcast_header = get_post_meta( get_the_ID(), 'tm_podcast_header', true );

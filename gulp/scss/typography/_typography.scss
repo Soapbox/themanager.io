@@ -94,6 +94,9 @@ h4{
   @include font-size(18);
   line-height: 1.2;
   margin-bottom: 10px;
+  &.technology-label{
+    color: $secondary;
+  }
 }
 
 p{
