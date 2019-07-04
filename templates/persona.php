@@ -42,9 +42,19 @@ get_header();
         <section class="grey section-padding">
           <div class="grid-container">
             <div class="grid-x grid-padding-x align-middle">
-              <div class="cell small-12 large-6">
-                <?php echo wp_get_attachment_image( $resps_image, 'full' ); ?>
-              </div>
+
+              <?php
+              if ( $resps_image ) {
+                ?>
+
+                <div class="cell small-12 large-6">
+                  <?php echo wp_get_attachment_image( $resps_image, 'full' ); ?>
+                </div>
+
+                <?php
+              }
+              ?>
+
               <div class="cell small-12 large-6">
                 <?php
                 echo '<p class="purple"><strong>' . esc_html__( 'You\'re responsible for:', 'tm' ) . '</strong></p>';
@@ -61,13 +71,77 @@ get_header();
           </div>
         </section>
 
-
-        
         <?php
       }
 
+      $book_header = get_post_meta( get_the_ID(), 'tm_book_header', true );
+      $book_text = get_post_meta( get_the_ID(), 'tm_book_text', true );
+      $books = get_post_meta( get_the_ID(), 'tm_books', true );
 
+      if ( $books ) {
+        ?>
 
+        <section class="section-padding">
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x align-middle">
+              <div class="cell small-12">
+                
+                <?php
+                if ( $book_header ) {
+                  echo '<h2 class="persona-section-header">' . esc_html( $book_header ) . '</h2>';
+                }
+                if ( $book_text ) {
+                  echo '<p>' . esc_html( $book_text ) . '</p>';
+                }
+                ?>
+                
+              </div>
+
+              <?php
+              for ( $i = 0; $i < $books; $i++ ) {
+                $image = get_post_meta( get_the_ID(), 'tm_books_' . $i . '_image', true );
+                $title = get_post_meta( get_the_ID(), 'tm_books_' . $i . '_title', true );
+                $text = get_post_meta( get_the_ID(), 'tm_books_' . $i . '_description', true );
+                $link = get_post_meta( get_the_ID(), 'tm_books_' . $i . '_link', true );
+                  
+                if ( $title && $text && $link ) {
+                  ?>
+
+                  <div class="cell small-12 medium-6">
+                    <div class="grid-x grid-padding-x grid-padding-y book">
+
+                      <?php
+                      if ( $image ) {
+                        ?>
+                        
+                        <div class="cell small-5">
+                          <?php echo wp_get_attachment_image( $image, 'full' ); ?>
+                        </div>
+
+                        <?php
+                      }
+                      ?>
+
+                      <div class="cell small-7 flex-container flex-dir-column align-justify align-top">
+                        <div>
+                          <h4><?php echo esc_html( $title ); ?></h4>
+                          <p><?php echo esc_html( $text ); ?></p>
+                        </div>
+                        <a class="button" href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <?php
+                }
+              }
+              ?>
+            </div>
+          </div>
+        </section>
+
+        <?php
+      }
 
 		endwhile; // End of the loop.
 		?>
