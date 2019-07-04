@@ -18,7 +18,8 @@ h1,
 h2{
   &.underline,
   &.persona-section-header,
-  .attend-cta &{
+  .attend-cta &,
+  .videos-wrapper &{
     position: relative;
     position: relative;
     display: inline-block;
@@ -33,12 +34,18 @@ h2{
     }
   }
   &.underline,
-  .attend-cta &{
+  .attend-cta &,
+  .videos-wrapper &{
     &::after{
       background: $secondary;
       width: 50%;
       left: 50%;
       transform: translate3d(-50%, 0, 0);
+    }
+  }
+  .videos-wrapper &{
+    &::after{
+      background: $maindark;
     }
   }
   &.persona-section-header{

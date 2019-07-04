@@ -1,0 +1,36 @@
+.slick-slide{
+  padding-right: .9375rem;
+  padding-left: .9375rem;
+  opacity: 0.5;
+  &.slick-center{
+    opacity: 1;
+  }
+}
+
+.slick-dots{
+  margin-top: 20px;
+  text-align: center;
+  li{
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 5px;
+    @include font-size(0);
+    &::before{
+      content: '';
+      height: 18px;
+      width: 18px;
+      background: #ebebeb;
+      display: block;
+      border-radius: 50%;
+      @include breakpoint(medium) {
+        height: 12px;
+        width: 12px;
+      } 
+    }
+    &.slick-active{
+      &::before{
+        background: $maindark;
+      }
+    }
+  }
+}

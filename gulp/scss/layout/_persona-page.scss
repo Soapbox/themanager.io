@@ -21,3 +21,21 @@
 .technology-header{
   text-align: right;
 }
+
+.blog-link{
+  color: $secondary;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 5px;
+  @include font-size(24);
+}
+
+.videos-wrapper{
+  color: #fff;
+  .video-text{
+    background: #fff;
+    color: #000;
+    padding: 15px;
+    height: 200px;
+  }
+}

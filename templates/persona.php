@@ -262,7 +262,60 @@ get_header();
         <?php
       }
       
+      // Blogs.
+      $blog_header = get_post_meta( get_the_ID(), 'tm_blog_header', true );
+      $blog_text = get_post_meta( get_the_ID(), 'tm_blog_text', true );
+      $blogs = get_post_meta( get_the_ID(), 'tm_blogs', true );
 
+      if ( $blogs ) {
+        ?>
+
+        <section class="section-padding">
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x grid-padding-y">
+              <div class="cell small-12">
+                
+                <?php
+                if ( $blog_header ) {
+                  echo '<h2 class="persona-section-header">' . esc_html( $blog_header ) . '</h2>';
+                }
+                if ( $blog_text ) {
+                  echo '<p>' . esc_html( $blog_text ) . '</p>';
+                }
+                ?>
+                
+              </div>
+
+              <?php
+              for ( $i = 0; $i < $blogs; $i++ ) {
+                $link = get_post_meta( get_the_ID(), 'tm_blogs_' . $i . '_title', true );
+                $text = get_post_meta( get_the_ID(), 'tm_blogs_' . $i . '_description', true );
+
+                if ( $link ) {
+                  ?>
+
+                  <div class="cell small-12">
+                    <a class="blog-link" href="<?php echo esc_url( $link['url'] ); ?>" target="_blank"><?php echo esc_html( $link['title'] ); ?></a>
+                  
+                    <?php
+                    if ( $text ) {
+                      echo '<p>' . esc_html( $text ) . '</p>';
+                    }
+                    ?>
+
+                  </div>
+
+                  <?php
+                }
+              }
+              ?>
+
+            </div>
+          </div>
+        </section>
+
+        <?php
+      }
 
       // Podcasts.
       $podcast_header = get_post_meta( get_the_ID(), 'tm_podcast_header', true );
@@ -330,6 +383,101 @@ get_header();
             </div>
           </div>
         </section>
+
+        <?php
+      }
+
+      // Videos.
+      $video_header = get_post_meta( get_the_ID(), 'tm_video_title', true );
+      $videos = get_post_meta( get_the_ID(), 'tm_videos', true );
+
+      if ( $videos ) {
+        ?>
+
+        <section class="section-padding green videos-wrapper">
+          <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+              <h2 class="text-center"><?php echo esc_html( $video_header ); ?></h2>
+            </div>
+          </div>
+
+          <div class="grid-x grid-padding-x videos">
+            <?php
+              for ( $i = 0; $i < $videos; $i++ ) {
+                $vid = get_post_meta( get_the_ID(), 'tm_videos_' . $i . '_image', true );
+                $title = get_post_meta( get_the_ID(), 'tm_videos_' . $i . '_title', true );
+                $text = get_post_meta( get_the_ID(), 'tm_videos_' . $i . '_text', true );
+                
+                if ( $vid && $title ) {
+                  echo '<div class="cell small-12 large-4 flex-container">';
+                    echo wp_get_attachment_image( $vid, 'full' );
+                    echo '<div class="video-text">';
+                      echo '<h4>' . esc_html( $title ) . '</h4>';
+                      if ( $text ) {
+                        echo '<p>' . esc_html( $text ) . '</p>';
+                      }
+                    echo '</div>';
+                  echo '</div>';
+                }
+              }
+              ?>
+          </div>
+        </section>
+
+        <?php
+      }
+
+      // Bookmarks.
+      $bookmark_header = get_post_meta( get_the_ID(), 'tm_bookmark_header', true );
+      $bookmark_text = get_post_meta( get_the_ID(), 'tm_bookmark_text', true );
+      $bookmarks = get_post_meta( get_the_ID(), 'tm_bookmarks', true );
+
+      if ( $bookmarks ) {
+        ?>
+        
+        <section class="section-padding">
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+              <div class="cell small-12">
+                
+                <?php
+                if ( $bookmark_header ) {
+                  echo '<h2 class="persona-section-header">' . esc_html( $bookmark_header ) . '</h2>';
+                }
+                if ( $bookmark_text ) {
+                  echo '<p>' . esc_html( $bookmark_text ) . '</p>';
+                }
+                ?>
+                
+              </div>
+
+              <?php
+              for ( $i = 0; $i < $bookmarks; $i++ ) {
+                $link = get_post_meta( get_the_ID(), 'tm_bookmarks_' . $i . '_link', true );
+                $text = get_post_meta( get_the_ID(), 'tm_bookmarks_' . $i . '_text', true );
+
+                if ( $link && $text ) {
+                  ?>
+
+                  <div class="cell small-12">
+                    <div class="grid-x grid-padding-x grid-padding-y">
+                      <div class="cell small-12 medium-3">
+                        <a class="button" href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
+                      </div>
+                      <div class="cell small-12 medium-9">
+                        <p><?php echo esc_html( $text ); ?></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <?php
+                }
+              }
+              ?>
+
+            </div>
+          </div>
+        </div>
 
         <?php
       }

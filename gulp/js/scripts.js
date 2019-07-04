@@ -20,4 +20,21 @@ jQuery(document).ready(function($){
     }
   });
 
+  // Video Slick.
+  $('.videos').slick({
+    infinite: true,
+    mobileFirst: true,
+    arrows: false,
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 3,
+          centerMode: true,
+        }
+      }
+    ]
+  });
+
 });
