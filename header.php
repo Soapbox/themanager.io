@@ -26,7 +26,7 @@
     <div class="grid-container flex-container align-justify align-middle">
       <div class="site-branding">
         <?php the_custom_logo(); ?>
-        themanager.io
+        <a href="<?php echo esc_url( home_url() ); ?>">the<strong>Manager</strong>.io</a>
       </div><!-- .site-branding -->
       <a class="button join-us" href="#">Join Us</a>
     </div>

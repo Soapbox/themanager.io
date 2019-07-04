@@ -1,6 +1,10 @@
 .site-header{
   background: $main;
   padding: 15px 0;
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 .page-nav-wrapper{

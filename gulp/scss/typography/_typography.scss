@@ -44,8 +44,10 @@ h2{
     }
   }
   .videos-wrapper &{
+    display: block;
     &::after{
       background: $maindark;
+      width: 120px;
     }
   }
   &.persona-section-header{
@@ -62,7 +64,7 @@ h2{
 
 h1{
   margin-top: 0;
-  @include font-size(55);
+  @include font-size(40);
   .home-header & {
     margin: 0;
     font-weight: normal;
@@ -83,6 +85,12 @@ h1{
         background: $secondary;
       }
     }
+  }
+  .page-header &{
+    line-height: 1.1;
+  }
+  @include breakpoint(medium) {
+    @include font-size(55);
   }
 }
 

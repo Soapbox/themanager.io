@@ -409,9 +409,11 @@ get_header();
         ?>
 
         <section id="videos" class="section-padding green videos-wrapper">
-          <div class="grid-x grid-padding-x">
-            <div class="cell small-12">
-              <h2 class="text-center"><?php echo esc_html( $video_header ); ?></h2>
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+              <div class="cell small-12">
+                <h2 class="text-center"><?php echo esc_html( $video_header ); ?></h2>
+              </div>
             </div>
           </div>
 
