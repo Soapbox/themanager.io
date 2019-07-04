@@ -45,6 +45,10 @@ h2{
     &::after{
       background: $maindark;
       width: 100px;
+      .technology-header &{
+        left: auto;
+        right: 0;
+      }
     }
   }
 }
