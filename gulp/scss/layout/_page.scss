@@ -24,6 +24,13 @@
   .attachment-post-thumbnail{
     width: 90%;
   }
+  a{
+    color: white;
+    svg{
+      border-radius: 50%;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,0.05), 0 4px 6px 0 rgba(0,0,0,0.05);
+    }
+  }
   @include breakpoint(large) {
     height: 90vh;
   }

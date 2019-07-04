@@ -41,7 +41,7 @@ get_header();
                 }
 
                 if ( $header_link ) {
-                  echo '<a class="button secondary" href="#managers">' . esc_html( $header_link['title'] ) . '</a>';
+                  echo '<a href="#managers"><i class="fa-3x fas fa-chevron-circle-down"></i></a>';
                 }
                 ?>
 
