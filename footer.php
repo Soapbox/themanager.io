@@ -9,7 +9,37 @@
  * @package themanager
  */
 
-?>
+
+  $attend = get_option( 'options_tm_attend_text' );
+  $attend_link = get_option( 'options_tm_attend_link' );
+
+  if ( $attend ) {
+    ?>
+    
+    <section class="attend-cta section-padding text-center">
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-12 medium-10 medium-offset-1 large-8 large-offset-2">
+            <?php
+            echo wp_kses_post( apply_filters( 'the_content', $attend ) );
+            
+            if ( $attend_link ) {
+              ?>
+
+              <a class="button secondary" href="<?php echo esc_url( $attend_link['url'] ); ?>"><?php echo esc_html( $attend_link['title'] ); ?></a>
+
+              <?php
+            }
+            ?>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <?php
+  }
+
+  ?>
 
 	</div><!-- #content -->
 

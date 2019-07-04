@@ -18,7 +18,7 @@ get_header();
       the_post();
       ?>
 
-      <header class="page-header home-header flex-container align-middle">
+      <header class="home-header flex-container align-middle">
         <div class="grid-container">
           <div class="grid-x grid-padding-x align-top">
 
@@ -83,16 +83,20 @@ get_header();
                   ?>
   
                   <div class="cell small-12 medium-6 large-4 flex-container">
-                    <div class="card">
-                      <h3 class="text-center"><?php echo esc_html( $name ); ?></h3>
-                      <?php
-                      echo wp_get_attachment_image( $image, 'full' );
-                      echo wp_kses_post( apply_filters( 'the_content', $text ) );
+                    <div class="card flex-container flex-dir-column align-justify">
+                      <div>
+                        <h3 class="text-center"><?php echo esc_html( $name ); ?></h3>
+                        <?php
+                        echo wp_get_attachment_image( $image, 'full' );
+                        echo wp_kses_post( apply_filters( 'the_content', $text ) );
+                        ?>
+                      </div>
                       
+                      <?php
                       if ( $link ) {
                         ?>
 
-                        <a class="button tertiary" href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
+                        <a class="button" href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
 
                         <?php
                       }
@@ -148,35 +152,6 @@ get_header();
               }
               ?>
 
-            </div>
-          </div>
-        </section>
-
-        <?php
-      }
-
-      $attend = get_post_meta( get_the_ID(), 'tm_attend_text', true );
-      $attend_link = get_post_meta( get_the_ID(), 'tm_attend_link', true );
-      
-      if ( $attend ) {
-        ?>
-        
-        <section class="attend-cta section-padding text-center">
-          <div class="grid-container">
-            <div class="grid-x grid-padding-x">
-              <div class="cell small-12 medium-10 medium-offset-1 large-8 large-offset-2">
-                <?php
-                echo wp_kses_post( apply_filters( 'the_content', $attend ) );
-                
-                if ( $attend_link ) {
-                  ?>
-
-                  <a class="button secondary" href="<?php echo esc_url( $attend_link['url'] ); ?>"><?php echo esc_html( $attend_link['title'] ); ?></a>
-
-                  <?php
-                }
-                ?>
-              </div>
             </div>
           </div>
         </section>

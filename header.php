@@ -28,7 +28,7 @@
         <?php the_custom_logo(); ?>
         themanager.io
       </div><!-- .site-branding -->
-      <a class="button" href="#">Join Us</a>
+      <a class="button join-us" href="#">Join Us</a>
     </div>
   </header><!-- #masthead -->
 

@@ -1,25 +1,32 @@
 .button{
   border-radius: 3px;
-  background: $secondary;
   text-transform: uppercase;
   font-weight: bold;
   text-decoration: none;
   padding: 15px 40px;
+  background: $maindark;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.05), 0 4px 6px 0 rgba(0,0,0,0.05);
   border: 2px solid transparent;
   margin: 0;
   transition: 0.3s ease-in-out;
   &:hover{
+    border: 2px solid $maindark;
+    color: $maindark;
     background: #fff;
-    color: $secondary;
-    border: 2px solid $secondary;
   }
-  &.tertiary{
-    background: $maindark;
+  &.join-us{
+    background: $secondary;
     &:hover{
+      border: 2px solid $secondary;
+      color: $secondary;
       background: #fff;
-      color: $maindark;
-      border: 2px solid $maindark;
+    }
+  }
+  &.secondary{
+    background: #fff;
+    &:hover{
+      border: 2px solid transparent;
+      background: #fff;
     }
   }
 
