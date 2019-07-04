@@ -1,5 +1,8 @@
 .page-header{
   height: 400px;
+  &.sticky{
+    padding-top: 54px;
+  }
 }
 
 .home-header{

@@ -37,4 +37,21 @@ jQuery(document).ready(function($){
     ]
   });
 
+  // Sticky Nav.
+  var nav = $('.page-nav-wrapper');
+  var header = $('.page-header');
+  var sticky = nav.offset().top;
+
+  $(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+
+    if ( scroll > sticky ) {
+      nav.addClass('sticky');
+      header.addClass('sticky');
+    } else {
+      nav.removeClass('sticky');
+      header.removeClass('sticky');
+    }
+  });
+
 });

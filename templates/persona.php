@@ -18,6 +18,20 @@ get_header();
 			the_post();
       ?>
       
+      <!-- Page Nav. -->
+      <section id="page-nav-wrapper" class="page-nav-wrapper">
+        <div class="grid-container">
+          <ul class="page-nav flex-container align-justify">
+            <li><a href="#books"><?php echo esc_html__( 'Books', 'tm' ); ?></a></li>
+            <li><a href="#tech"><?php echo esc_html__( 'Tech', 'tm' ); ?></a></li>
+            <li><a href="#blogs"><?php echo esc_html__( 'Blogs', 'tm' ); ?></a></li>
+            <li><a href="#podcasts"><?php echo esc_html__( 'Podcasts', 'tm' ); ?></a></li>
+            <li><a href="#videos"><?php echo esc_html__( 'Videos', 'tm' ); ?></a></li>
+            <li><a href="#bookmarks"><?php echo esc_html__( 'Bookmarks', 'tm' ); ?></a></li>
+          </ul>
+        </div>
+      </section>
+
       <header class="page-header flex-container align-middle text-center">
         <div class="grid-container">
           <div class="grid-x grid-padding-x">
@@ -83,7 +97,7 @@ get_header();
       if ( $books ) {
         ?>
 
-        <section class="section-padding">
+        <section id="books" class="section-padding">
           <div class="grid-container">
             <div class="grid-x grid-padding-x">
               <div class="cell small-12">
@@ -152,7 +166,7 @@ get_header();
       if ( $tech ) {
         ?>
 
-        <section class="section-padding">
+        <section id="tech" class="section-padding">
           <div class="grid-container">
             <div class="grid-x grid-padding-x align-middle">
               <div class="cell small-12 technology-header">
@@ -270,7 +284,7 @@ get_header();
       if ( $blogs ) {
         ?>
 
-        <section class="section-padding">
+        <section id="blogs" class="section-padding">
           <div class="grid-container">
             <div class="grid-x grid-padding-x grid-padding-y">
               <div class="cell small-12">
@@ -325,7 +339,7 @@ get_header();
       if ( $podcasts ) {
         ?>
 
-        <section class="section-padding">
+        <section id="podcasts" class="section-padding">
           <div class="grid-container">
             <div class="grid-x grid-padding-x">
               <div class="cell small-12">
@@ -394,7 +408,7 @@ get_header();
       if ( $videos ) {
         ?>
 
-        <section class="section-padding green videos-wrapper">
+        <section id="videos" class="section-padding green videos-wrapper">
           <div class="grid-x grid-padding-x">
             <div class="cell small-12">
               <h2 class="text-center"><?php echo esc_html( $video_header ); ?></h2>
@@ -435,7 +449,7 @@ get_header();
       if ( $bookmarks ) {
         ?>
         
-        <section class="section-padding">
+        <section id="bookmarks" class="section-padding">
           <div class="grid-container">
             <div class="grid-x grid-padding-x">
               <div class="cell small-12">
