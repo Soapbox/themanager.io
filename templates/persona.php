@@ -159,6 +159,7 @@ get_header();
         <?php
       }
 
+      // Technology.
       $tech_header = get_post_meta( get_the_ID(), 'tm_technology_header', true );
       $tech_text = get_post_meta( get_the_ID(), 'tm_technology_text', true );
       $tech = get_post_meta( get_the_ID(), 'tm_technology_type', true );
@@ -168,7 +169,7 @@ get_header();
 
         <section id="tech" class="section-padding">
           <div class="grid-container">
-            <div class="grid-x grid-padding-x align-middle">
+            <div class="grid-x grid-padding-x grid-padding-y align-middle">
               <div class="cell small-12 technology-header">
 
                 <?php
@@ -209,16 +210,18 @@ get_header();
                         ?>
 
                         <div class="cell small-12 medium-4">
-                          <div class="card">
-                            <div class="flex-container align-middle" style="margin-bottom: 10px;">
-                              <?php
-                              if ( $icon ) {
-                                echo wp_get_attachment_image( $icon, 'full', '', array( 'class' => 'tech-icon' ) );
-                              }
-                              ?>
-                              <h4><?php echo esc_html( $item_title ); ?></h4>
+                          <div class="card flex-dir-column align-justify">
+                            <div>
+                              <div class="flex-container align-middle" style="margin-bottom: 10px;">
+                                <?php
+                                if ( $icon ) {
+                                  echo wp_get_attachment_image( $icon, 'full', '', array( 'class' => 'tech-icon' ) );
+                                }
+                                ?>
+                                <h4><?php echo esc_html( $item_title ); ?></h4>
+                              </div>
+                              <p><?php echo esc_html( $item_text ); ?></p>
                             </div>
-                            <p><?php echo esc_html( $item_text ); ?></p>
                             <a class="button" href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
                           </div>
                         </div>
@@ -424,16 +427,19 @@ get_header();
               $vid = $video['image'];
               $title = $video['title'];
               $text = $video['text'];
+              $link = $video['link'];
 
-              if ( $vid && $title ) {
+              if ( $vid && $title && $link ) {
                 echo '<div class="cell small-12 large-4">';
-                  echo wp_get_attachment_image( $vid, 'full' );
-                  echo '<div class="video-text">';
-                    echo '<h4>' . esc_html( $title ) . '</h4>';
-                    if ( $text ) {
-                      echo '<p>' . esc_html( $text ) . '</p>';
-                    }
-                  echo '</div>';
+                  echo '<a href="' . esc_url( $link['url'] ) . '" target="_blank">';
+                    echo wp_get_attachment_image( $vid, 'full' );
+                    echo '<div class="video-text">';
+                      echo '<h4>' . esc_html( $title ) . '</h4>';
+                      if ( $text ) {
+                        echo '<p>' . esc_html( $text ) . '</p>';
+                      }
+                    echo '</div>';
+                  echo '</a>';
                 echo '</div>';
               }
             }
