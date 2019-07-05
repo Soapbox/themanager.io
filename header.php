@@ -28,7 +28,14 @@
         <?php the_custom_logo(); ?>
         <a href="<?php echo esc_url( home_url() ); ?>">the<strong>Manager</strong>.io</a>
       </div><!-- .site-branding -->
-      <a class="button join-us" href="#">Join Us</a>
+      
+      <?php
+      $join = get_option( 'options_tm_header_join_us_button' );
+
+      if ( $join ) {
+        echo '<a class="button join-us" href="' . esc_url( $join['url'] ) . '">' . esc_html( $join['title'] ) . '</a>';
+      }
+      ?>
     </div>
   </header><!-- #masthead -->
 

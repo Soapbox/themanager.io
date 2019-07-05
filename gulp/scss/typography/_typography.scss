@@ -122,6 +122,9 @@ p{
   &.purple{
     color: $maindark;
   }
+  &.greytext{
+    color: $greytext;
+  }
   .page-header &{
     margin: 0;
   }

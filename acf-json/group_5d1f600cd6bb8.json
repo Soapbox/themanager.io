@@ -1,0 +1,39 @@
+{
+    "key": "group_5d1f600cd6bb8",
+    "title": "Header Options",
+    "fields": [
+        {
+            "key": "field_5d1f601053eac",
+            "label": "Header Join Us Button",
+            "name": "tm_header_join_us_button",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-theme-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1562337332
+}

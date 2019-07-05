@@ -313,7 +313,7 @@ get_header();
                   
                     <?php
                     if ( $text ) {
-                      echo '<p>' . esc_html( $text ) . '</p>';
+                      echo '<p class="greytext">' . esc_html( $text ) . '</p>';
                     }
                     ?>
 
@@ -403,7 +403,8 @@ get_header();
 
       // Videos.
       $video_header = get_post_meta( get_the_ID(), 'tm_video_title', true );
-      $videos = get_post_meta( get_the_ID(), 'tm_videos', true );
+      $videos = get_field( 'tm_videos' );
+      $size = sizeof($videos);
 
       if ( $videos ) {
         ?>
@@ -417,26 +418,26 @@ get_header();
             </div>
           </div>
 
-          <div class="grid-x grid-padding-x videos">
+          <div class="grid-x grid-padding-x<?php echo esc_attr( 3 < $size ? ' videos' : ' align-center' ); ?>">
             <?php
-              for ( $i = 0; $i < $videos; $i++ ) {
-                $vid = get_post_meta( get_the_ID(), 'tm_videos_' . $i . '_image', true );
-                $title = get_post_meta( get_the_ID(), 'tm_videos_' . $i . '_title', true );
-                $text = get_post_meta( get_the_ID(), 'tm_videos_' . $i . '_text', true );
-                
-                if ( $vid && $title ) {
-                  echo '<div class="cell small-12 large-4 flex-container">';
-                    echo wp_get_attachment_image( $vid, 'full' );
-                    echo '<div class="video-text">';
-                      echo '<h4>' . esc_html( $title ) . '</h4>';
-                      if ( $text ) {
-                        echo '<p>' . esc_html( $text ) . '</p>';
-                      }
-                    echo '</div>';
+            foreach ( $videos as $video ) {
+              $vid = $video['image'];
+              $title = $video['title'];
+              $text = $video['text'];
+
+              if ( $vid && $title ) {
+                echo '<div class="cell small-12 large-4">';
+                  echo wp_get_attachment_image( $vid, 'full' );
+                  echo '<div class="video-text">';
+                    echo '<h4>' . esc_html( $title ) . '</h4>';
+                    if ( $text ) {
+                      echo '<p>' . esc_html( $text ) . '</p>';
+                    }
                   echo '</div>';
-                }
+                echo '</div>';
               }
-              ?>
+            }
+            ?>
           </div>
         </section>
 
@@ -481,7 +482,7 @@ get_header();
                         <a class="button" href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
                       </div>
                       <div class="cell small-12 medium-9">
-                        <p><?php echo esc_html( $text ); ?></p>
+                        <p class="greytext"><?php echo esc_html( $text ); ?></p>
                       </div>
                     </div>
                   </div>
