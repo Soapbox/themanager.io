@@ -407,7 +407,10 @@ get_header();
       // Videos.
       $video_header = get_post_meta( get_the_ID(), 'tm_video_title', true );
       $videos = get_field( 'tm_videos' );
-      $size = sizeof($videos);
+
+      if ( ! empty( $videos ) ) {
+        $size = sizeof($videos);
+      }
 
       if ( $videos ) {
         ?>
