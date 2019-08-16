@@ -52,7 +52,12 @@
   // Bookmarks.
   #bookmarks & {
     width: 100%;
+    height: 68px;
     line-height: 1.2;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 }
